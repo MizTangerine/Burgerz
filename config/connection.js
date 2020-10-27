@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 // ***create mysql connection
 const connection = mysql.createConnection({
@@ -14,7 +14,7 @@ connection.connect((err) => {
     if (err) {
         throw err;
     };
-    console.log('hi')
+    console.log('db burgers_db connected')
 });
 
 // ***Export connection
