@@ -1,0 +1,25 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Henny Penny', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: .25rem;
+    background-color: #f9ffdb;
+}
+
+header h1 {
+    font-size: 100px;
+    letter-spacing: 50px;
+    text-align: center;
+    color: #fb6d05;
+}
+
+header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h2 {
+    font-size: 42px;
+    letter-spacing: 10px;
+    text-align: center;
+}
