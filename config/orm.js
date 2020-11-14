@@ -1,28 +1,58 @@
 const connection = require("../config/connection.js");
 
+//Helper functions to convert given items to SQL syntax
+function printQuestionMarks(num) {
+    let arr = [];
+    for (i = 0; i < num; i++) {
+        arr.push("?");
+    };
+    return arr.toString();
+};
+
+function objToSql(ob) {
+    let arr = [];
+    for (let key in ob) {
+        let value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    };
+    return arr.toString();
+};
+
+
 const orm = {
-    all: (tableInput, cb) => {
-        const queryString = "SELECT * FROM ?? ORDER BY id";
-        connection.query(queryString, [tableInput], (err, result) => {
-            if (err) { throw err };
-            cb(result);
+    selectAll: function (table, cb) {
+        let queryString = 'SELECT * FROM ' + table + ';';
+        connection.query(queryString, (err, res) => {
+            if (err) throw err;
+            cb(res);
         });
     },
-    insertOne: (tableInput, colName, valOfCol, cb) => {
-        const queryString = "INSERT INTO ?? (??) VALUES (?)";
-        connection.query(queryString, [tableInput], [colName], [valOfCol], (err, result) => {
-            if (err) { throw err };
-            cb(result);
+
+    insertOne: function (table, cols, vals, cb) {
+        let queryString = 'INSERT INTO ' + table;
+        queryString += '(' + cols.toString() + ')';
+        queryString += 'VALUES (' + printQuestionMarks(vals.length) + ')';
+        connection.query(queryString, vals, (err, res) => {
+            if (err) throw err;
+            cb(res);
+            console.log('insert', res)
         });
     },
-    updateOne: ([tableInput], [colName], [valToUpdate], [colNameId], [valId], cb) => {
-        const queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-        connection.query(queryString, [tableInput], [colName], [valToUpdate], [colNameId], [valId], (err, result) => {
-            if (err) { throw err };
-            cb(result);
+
+    updateOne: function (table, colVal, condition, cb) {
+        let queryString = 'UPDATE ' + table;
+        queryString += ' SET ' + objToSql(colVal);
+        queryString += ' WHERE ' + condition;
+        connection.query(queryString, (err, res) => {
+            if (err) throw err;
+            cb(res);
         });
     }
 };
 
-// ***Export the orm object
 module.exports = orm;
