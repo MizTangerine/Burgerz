@@ -76,19 +76,17 @@ button.devour :hover {
 .container {
     display: flex;
     justify-content: space-between;
-    /* margin-left: 2rem;
-    margin-right: 2rem; */
     margin: auto;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 .container h3 {
     font-family: 'Fredoka One';
-    font-size: 50px;
+    font-size: 45px;
 }
 
 ul {
     font-family: 'Source Code Pro';
     font-weight: bold;
-    font-size: 45px;
+    font-size: 38px;
 }
