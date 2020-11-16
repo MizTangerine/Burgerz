@@ -63,7 +63,7 @@ form button :hover {
 }
 
 button.devour {
-    float: right;
+    justify-content: flex-end;
     border-radius: 5pt;
     border-color: #61d803;
     border-width: 3pt;
@@ -88,5 +88,5 @@ button.devour :hover {
 ul {
     font-family: 'Source Code Pro';
     font-weight: bold;
-    font-size: 38px;
+    font-size: 40px;
 }
