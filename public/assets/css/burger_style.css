@@ -1,7 +1,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     /* font-family: 'Henny Penny', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-    margin: .25rem;
+    margin: .5rem;
     background-color: #f9ffdb;
 }
 
@@ -30,7 +30,7 @@ header h2 {
 
 form {
     margin: auto;
-    width: 70%;
+    max-width: 850px;
 }
 
 input {
@@ -75,6 +75,11 @@ button.devour :hover {
 
 .container {
     display: flex;
+    justify-content: space-between;
+    /* margin-left: 2rem;
+    margin-right: 2rem; */
+    margin: auto;
+    max-width: 1000px;
 }
 
 .container h3 {
