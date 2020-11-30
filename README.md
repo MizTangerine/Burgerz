@@ -8,7 +8,7 @@ A burger logger with MySQL, Node, Express, Handlebars and a custom ORM.
 
 Link to live site: [Burgerz](https://shrouded-falls-53303.herokuapp.com/)
 
-![Landing Page](public/assets/img/Example.gif)
+![Landing Page](public/assets/img/example.gif)
 
 ## Table of Contents
 

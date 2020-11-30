@@ -2,10 +2,10 @@ $(() => {
     //click listener for add burger button
     $(".create").on("submit", (event) => {
         event.preventDefault();
-        var newBurger = {
+        let newBurger = {
             burger_name: $("#newBurger").val().trim().split(' ').map(word => word.substr(0, 1).toUpperCase() + word.substr(1)).join(' ')
         }
-        console.log(newBurger);
+        // console.log(newBurger);
         $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
